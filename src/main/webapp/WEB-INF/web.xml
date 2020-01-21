@@ -5,29 +5,35 @@
 <web-app>
 
 	<display-name>Archetype Created Web Application</display-name>
-
+	
 	<welcome-file-list>
 		<welcome-file>views/home.jsp</welcome-file>
 	</welcome-file-list>
 	
+	<!--
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>resources/application-context.xml</param-value>
-	</context-param>
+		<param-value>/WEB-INF/config/application-context.xml</param-value>
+	</context-param>	
  
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	-->
 
 	<servlet>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>0</load-on-startup>
+		<init-param>
+        	<param-name>contextConfigLocation</param-name>
+        	<param-value>/WEB-INF/config/application-context.xml</param-value>
+    	</init-param>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>profilemanagement/</url-pattern>
 	</servlet-mapping>
 
 </web-app>
