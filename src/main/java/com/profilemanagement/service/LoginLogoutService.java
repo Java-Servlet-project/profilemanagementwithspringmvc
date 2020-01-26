@@ -1,7 +1,9 @@
 package com.profilemanagement.service;
 
+import javax.servlet.http.HttpServletResponse;
+
 public interface LoginLogoutService {
 	
-	String login(String username, String password);
+	boolean login(HttpServletResponse response, String username, String password);
 
 }

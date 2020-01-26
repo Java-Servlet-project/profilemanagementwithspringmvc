@@ -1,5 +1,7 @@
 package com.profilemanagement.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +18,11 @@ public class LoginLogoutController {
 	private LoginLogoutService service;
 	
 	@PostMapping(value = "/login")
-	public String login(@RequestParam("usrname") final String username, @RequestParam("pswd") final String password) {
-		return service.login(username, password);
+	public String login(final HttpServletResponse response, @RequestParam("usrname") final String username, @RequestParam("pswd") final String password) {
+		if (service.login(response, username, password))
+			return "success";
+		else
+			return "failure";
 	}
 
 }
