@@ -1,4 +1,4 @@
-package com.profilemanagement;
+package com.profilemanagement.util;
 
 public final class IamConstants {
 	

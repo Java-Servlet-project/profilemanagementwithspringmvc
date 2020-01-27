@@ -1,5 +1,7 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
@@ -18,9 +20,9 @@
 			<ul>
 				<li><a href = "views/login.html">LogIn</a></li>
 				</br>
-				<li><a href = "profilemanagement/first">My Profile</a></li>
+				<li><a href = "/ProfileManagementMvc/profilemanagement/user/profile">My Profile</a></li>
 				</br>
-				<li><a href = "profilemanagement/first">LogOut</a></li>
+				<li><a href = "/ProfileManagementMvc/profilemanagement/authentication/logout">LogOut</a></li>
 			</ul>			
 		</p>
 	</body>
