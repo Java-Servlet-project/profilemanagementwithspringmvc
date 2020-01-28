@@ -10,5 +10,8 @@
 
 	<body>
 		<h1>Success</h1>
+		<p>
+		<a href = "/ProfileManagementMvc/profilemanagement/user/profile">My Profile</a></li>
+		</p>
 	</body>
 </html>

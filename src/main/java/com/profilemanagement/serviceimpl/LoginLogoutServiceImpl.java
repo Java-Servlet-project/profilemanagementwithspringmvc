@@ -21,19 +21,21 @@ public class LoginLogoutServiceImpl implements LoginLogoutService {
 				&& StringUtils.equals("admin", password)) {
 			canLogIn = Boolean.TRUE;
 			final Cookie cookie = new Cookie(IamConstants.PROFILE_SERVICE_USER, username);
-			cookie.setMaxAge(120);
+			cookie.setMaxAge(1200);
 			response.addCookie(cookie);
 		}
 		return canLogIn;
 	}
 	
 	@Override
-	public boolean logout(final HttpServletRequest request) {
+	public boolean logout(final HttpServletRequest request, final HttpServletResponse response) {
 		boolean loggedOut = Boolean.FALSE;
 		final Cookie[] cookies = request.getCookies();
 		for (final Cookie cookie : cookies) {
 			if (IamConstants.PROFILE_SERVICE_USER.equals(cookie.getName())) {
 				SessionManagementHelper.removeObjectFromSession(request, cookie.getName());
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
 			}
 		}
 		return loggedOut;
