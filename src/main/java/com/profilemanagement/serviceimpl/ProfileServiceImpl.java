@@ -16,21 +16,16 @@ public class ProfileServiceImpl implements ProfileService {
 
 	@Override
 	public ModelAndView getEmployeeProfile(final HttpServletRequest request) {
-		System.out.println("HIT ======= ");
 		final Cookie[] cookies = request.getCookies();
-		System.out.println("HIT 2 ======= ");
 		for (final Cookie cookie : cookies) {
 			System.out.println(cookie.getName() + "  " + cookie.getValue());
 			if (IamConstants.PROFILE_SERVICE_USER.equals(cookie.getName())) {
-				System.out.println("Cookie value : " + cookie.getValue());
 				ModelAndView modelAndView = null;
 				final Employee employee = SessionManagementHelper.getObjectFromSession(request, cookie.getName());
 				if (null != employee) {
-					System.out.println("Found employee ======");
 					modelAndView = new ModelAndView("profilePage", "employee", employee);
 				} else {
-					System.out.println("Not Found employee ======");
-					modelAndView = new ModelAndView("registration");
+					modelAndView = new ModelAndView("registration", "employee", new Employee());
 				}
 				return modelAndView;
 			}
@@ -44,7 +39,14 @@ public class ProfileServiceImpl implements ProfileService {
 		for (final Cookie cookie : cookies) {
 			if (IamConstants.PROFILE_SERVICE_USER.equals(cookie.getName())) {
 				SessionManagementHelper.setObjectInSession(request, cookie.getValue(), employee);
-				return new ModelAndView("profilePage", "employee", employee);
+				
+				System.out.println("====" + employee.getFirstName());
+				System.out.println("====" + employee.getLastName());
+				System.out.println("====" + employee.getSalary());
+				
+				final ModelAndView modelAndView = new ModelAndView("profilePage");
+				modelAndView.addObject("employee", employee);
+				return modelAndView;
 			}
 		}
 		return new ModelAndView("home");

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.profilemanagement.serviceimpl.LoginLogoutServiceImpl;
 
@@ -28,11 +29,11 @@ public class LoginLogoutController {
 	}
 	
 	@GetMapping(value = "/logout")
-	public String logout(final HttpServletRequest request, final HttpServletResponse response) {
+	public ModelAndView logout(final HttpServletRequest request, final HttpServletResponse response) {
 		if (service.logout(request, response)) {
-			return "home";
+			return new ModelAndView("home");
 		} else {
-			return "error";
+			return new ModelAndView("error");
 		}
 		
 	}

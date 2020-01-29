@@ -21,7 +21,9 @@ public class LoginLogoutServiceImpl implements LoginLogoutService {
 				&& StringUtils.equals("admin", password)) {
 			canLogIn = Boolean.TRUE;
 			final Cookie cookie = new Cookie(IamConstants.PROFILE_SERVICE_USER, username);
-			cookie.setMaxAge(1200);
+			cookie.setMaxAge(60 * 60);
+			//cookie.setDomain(".ProfileManagementMvc/profilemanagement/.");
+			cookie.setPath("/ProfileManagementMvc");
 			response.addCookie(cookie);
 		}
 		return canLogIn;
