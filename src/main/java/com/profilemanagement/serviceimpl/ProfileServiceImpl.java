@@ -39,11 +39,6 @@ public class ProfileServiceImpl implements ProfileService {
 		for (final Cookie cookie : cookies) {
 			if (IamConstants.PROFILE_SERVICE_USER.equals(cookie.getName())) {
 				SessionManagementHelper.setObjectInSession(request, cookie.getValue(), employee);
-				
-				System.out.println("====" + employee.getFirstName());
-				System.out.println("====" + employee.getLastName());
-				System.out.println("====" + employee.getSalary());
-				
 				final ModelAndView modelAndView = new ModelAndView("profilePage");
 				modelAndView.addObject("employee", employee);
 				return modelAndView;

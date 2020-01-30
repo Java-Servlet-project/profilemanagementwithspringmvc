@@ -23,6 +23,8 @@
 				<li><a href = "/ProfileManagementMvc/profilemanagement/user/profile">My Profile</a></li>
 				</br>
 				<li><a href = "/ProfileManagementMvc/profilemanagement/authentication/logout">LogOut</a></li>
+				</br>
+				<li><a href = "/ProfileManagementMvc/facebook">Facebook</a></li>
 			</ul>			
 		</p>
 	</body>
