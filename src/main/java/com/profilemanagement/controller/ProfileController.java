@@ -22,13 +22,11 @@ public class ProfileController {
 	
 	@GetMapping(value = "/profile")
 	public ModelAndView userProfile(final HttpServletRequest request) {
-		System.out.println("user profile =============");
 		return service.getEmployeeProfile(request);
 	}
 	
 	@PostMapping(value = "/registration")
 	public ModelAndView userRegistration(final HttpServletRequest request, @ModelAttribute("employee") final Employee employee) {
-		System.out.println("registration ==============");
 		return service.saveEmployee(request, employee);
 	}
 }
