@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
@@ -26,7 +27,14 @@ public class RedirectController {
     @GetMapping(value = "/findme")
     public ModelAndView findMe(final ModelMap model) {
     	model.addAttribute("name", "Soumitra");
-        return new ModelAndView("redirect:http://www.google.com", model);
+        //return new ModelAndView("redirect:http://www.google.com", model);
+    	return new ModelAndView("redirect:/profilemanagement/redirect/me", model);
+    }
+    
+    @GetMapping(value = "/me")
+    public String me(@RequestParam final String name) {
+    	System.out.println("name = " + name);
+    	return "success";
     }
     
     @GetMapping(value = "google")
