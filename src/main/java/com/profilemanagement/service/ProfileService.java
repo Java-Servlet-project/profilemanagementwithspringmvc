@@ -8,8 +8,8 @@ import com.profilemanagement.model.Employee;
 
 public interface ProfileService {
 	
-	ModelAndView getEmployeeProfile(HttpServletRequest request);
+	ModelAndView getEmployeeProfile(Employee emp, String cookieValue, HttpServletRequest request);
 	
-	ModelAndView saveEmployee(HttpServletRequest request, Employee employee);
+	ModelAndView saveEmployee(String cookieValue, HttpServletRequest request, Employee employee);
 
 }

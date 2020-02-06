@@ -7,5 +7,5 @@ public interface LoginLogoutService {
 	
 	boolean login(HttpServletResponse response, String username, String password);
 	
-	boolean logout(HttpServletRequest request, HttpServletResponse response);
+	boolean logout(String cookieValue, HttpServletRequest request, HttpServletResponse response);
 }

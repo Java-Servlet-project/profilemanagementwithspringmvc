@@ -24,6 +24,8 @@
 				</br>
 				<li><a href = "/ProfileManagementMvc/profilemanagement/authentication/logout">LogOut</a></li>
 				</br>
+				<hr>
+				</br>
 				<li><a href = "/ProfileManagementMvc/profilemanagement/redirect/facebook">Facebook</a></li>
 				</br>
 				<li><a href = "/ProfileManagementMvc/profilemanagement/redirect/google">Google Me</a></li>
@@ -34,7 +36,7 @@
 				</br>
 				<li><a href = "/ProfileManagementMvc/profilemanagement/redirect/findme">Find Me</a></li>
 				</br>
-				<li><a href = "/ProfileManagementMvc/profilemanagement/forward/f5">Forward</a></li>
+				<li><a href = "/ProfileManagementMvc/profilemanagement/forward/f7">Forward</a></li>
 			</ul>			
 		</p>
 	</body>

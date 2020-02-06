@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.profilemanagement.model.Employee;
 
@@ -60,6 +61,26 @@ public class ForwardController {
 	@GetMapping(value = "/f6")
 	public String f6(@ModelAttribute("employee") final Employee emp) {
 		System.out.println("forwarded 6 ====== ");
+		System.out.println(" Firstname =  " + emp.getFirstName());
+		System.out.println(" Lastname =  " + emp.getLastName());
+		
+		return "success";
+	}
+	
+	@GetMapping(value = "/f7")
+	public RedirectView f7(final RedirectAttributes attributes) {
+		System.out.println("forwarded 7 ====== ");
+		final Employee emp = new Employee();
+		emp.setFirstName("Soumitra");
+		emp.setLastName("Dutta");
+		attributes.addFlashAttribute("employee", emp);
+		
+		return new RedirectView("/ProfileManagementMvc/profilemanagement/forward/f8");
+	}
+	
+	@GetMapping(value = "/f8")
+	public String f8(@ModelAttribute("employee") final Employee emp) {
+		System.out.println("forwarded 8 ====== ");
 		System.out.println(" Firstname =  " + emp.getFirstName());
 		System.out.println(" Lastname =  " + emp.getLastName());
 		
