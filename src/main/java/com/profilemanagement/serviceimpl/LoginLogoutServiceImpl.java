@@ -47,10 +47,11 @@ public class LoginLogoutServiceImpl implements LoginLogoutService {
 	public boolean logout(final String cookieValue, final HttpServletRequest request, final HttpServletResponse response) {
 		boolean loggedOut = Boolean.FALSE;
 		if (StringUtils.isNotBlank(cookieValue)) {
-			SessionManagementHelper.removeObjectFromSession(request, cookieValue);
+			//SessionManagementHelper.removeObjectFromSession(request, cookieValue);
+			final Cookie cookie = CookieHelper.newCookie("", -1);
+			response.addCookie(cookie);
+			loggedOut = Boolean.TRUE;
 		}
-		final Cookie cookie = CookieHelper.newCookie("", -1);
-		response.addCookie(cookie);
 		return loggedOut;
 	}
 }

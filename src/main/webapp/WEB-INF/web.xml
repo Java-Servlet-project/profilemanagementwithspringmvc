@@ -4,7 +4,9 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+<!-- 
 	<display-name>Archetype Created Web Application</display-name>
+	 -->
 	
 	<welcome-file-list>
 		<welcome-file>views/home.jsp</welcome-file>
@@ -21,6 +23,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 	</listener>
 	-->
 
+<!--  
 	<servlet>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -35,5 +38,6 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		<servlet-name>DispatcherServlet</servlet-name>
 		<url-pattern>/profilemanagement/*</url-pattern>
 	</servlet-mapping>
+-->
 
 </web-app>

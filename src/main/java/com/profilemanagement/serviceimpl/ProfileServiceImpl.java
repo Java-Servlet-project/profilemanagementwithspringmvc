@@ -16,13 +16,12 @@ import com.profilemanagement.service.SessionManagementHelper;
 import com.profilemanagement.util.IamConstants;
 
 @Service
-@SessionAttributes("employee")
 public class ProfileServiceImpl implements ProfileService {
 	
 	@Override
 	public ModelAndView getEmployeeProfile(final Employee emp, final String cookieValue, final HttpServletRequest request) {
+		System.out.println("Cookie Value = " + cookieValue);
 		if (StringUtils.isNotBlank(cookieValue)) {
-			System.out.println("Cookie Value = " + cookieValue);
 			ModelAndView modelAndView = null;
 			if (null != emp) {
 				modelAndView = new ModelAndView("profilePage", "employee", emp);
@@ -38,19 +37,18 @@ public class ProfileServiceImpl implements ProfileService {
 	public ModelAndView saveEmployee(final String cookieValue, final HttpServletRequest request, final Employee employee) {
 		if (StringUtils.isNotBlank(cookieValue)) {
 			System.out.println("saving .. Cookie Value = " + cookieValue);
-			final Employee emp = save(employee);
-			if (emp != null) {
-				return new ModelAndView("profilePage", "employee", emp);
+			if (employee != null) {
+				return new ModelAndView("profilePage", "employee", employee);
 			}
 		}
 		return new ModelAndView("home");
 	}
 	
-	@ModelAttribute("employee")
-	private Employee save(final Employee employee) {
-		System.out.println("Saving employee");
-		return employee;
-	}
+	/*
+	 * @ModelAttribute("employee") private Employee save(final Employee employee) {
+	 * System.out.println("Saving employee");
+	 *return employee;
+	}*/
 
 	//@Override
 	public ModelAndView getEmployeeProfileYYY(final String cookieValue, final HttpServletRequest request) {

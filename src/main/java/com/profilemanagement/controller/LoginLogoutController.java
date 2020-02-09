@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.profilemanagement.serviceimpl.LoginLogoutServiceImpl;
@@ -32,8 +33,9 @@ public class LoginLogoutController {
 	
 	@GetMapping(value = "/logout")
 	public ModelAndView logout(@CookieValue(value = IamConstants.PROFILE_SERVICE_USER, defaultValue = "") final String cookieValue,
-			final HttpServletRequest request, final HttpServletResponse response) {
+			final HttpServletRequest request, final HttpServletResponse response, final SessionStatus status) {
 		if (service.logout(cookieValue, request, response)) {
+			status.setComplete();
 			return new ModelAndView("home");
 		} else {
 			return new ModelAndView("error");
