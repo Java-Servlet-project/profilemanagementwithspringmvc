@@ -2,6 +2,7 @@ package com.profilemanagement.springconfiguration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -13,10 +14,12 @@ public class WebServletConfiguration implements WebApplicationInitializer {
 	public void onStartup(final ServletContext servletContext) throws ServletException {
 		final AnnotationConfigWebApplicationContext webContext = new AnnotationConfigWebApplicationContext();
 		webContext.register(WebMvcConfiguration.class);
-		webContext.setServletContext(servletContext);
+		webContext.refresh();
 		
-		final ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(webContext));
-        servlet.setLoadOnStartup(0);
-        servlet.addMapping("/profilemanagement/*");
+		//webContext.setServletContext(servletContext);
+		final DispatcherServlet dispatcherServlet = new DispatcherServlet(webContext);
+		final ServletRegistration.Dynamic registration = servletContext.addServlet("DispatcherServlet", dispatcherServlet);
+		registration.setLoadOnStartup(0);
+		registration.addMapping("/profilemanagement/*");
 	}
 }
