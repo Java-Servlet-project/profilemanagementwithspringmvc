@@ -8,10 +8,11 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-public class WebServletConfiguration implements WebApplicationInitializer {
+public class WebServletConfiguration {/*implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(final ServletContext servletContext) throws ServletException {
+		System.out.println("\n\n\n\nUsing ServletRegistration.Dynamic #####\n\n\n\n");
 		final AnnotationConfigWebApplicationContext webContext = new AnnotationConfigWebApplicationContext();
 		webContext.register(WebMvcConfiguration.class);
 		webContext.refresh();
@@ -21,5 +22,5 @@ public class WebServletConfiguration implements WebApplicationInitializer {
 		final ServletRegistration.Dynamic registration = servletContext.addServlet("DispatcherServlet", dispatcherServlet);
 		registration.setLoadOnStartup(0);
 		registration.addMapping("/profilemanagement/*");
-	}
+	}*/
 }
