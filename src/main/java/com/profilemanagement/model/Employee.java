@@ -7,6 +7,12 @@ public class Employee {
 	private String lastName;
 	
 	private Long salary;
+	
+	public Employee(final String firstName, final String lastName, final Long salary) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.salary = salary;
+	}
 
 	public String getFirstName() {
 		return firstName;

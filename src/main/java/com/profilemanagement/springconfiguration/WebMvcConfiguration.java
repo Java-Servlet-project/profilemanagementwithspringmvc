@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -22,8 +21,8 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
         return viewResolver;
     }
 	
-    @Override
-    public void configureDefaultServletHandling(final DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
+	/*
+	 * @Override public void configureDefaultServletHandling(final
+	 * DefaultServletHandlerConfigurer configurer) { configurer.enable(); }
+	 */
 }
