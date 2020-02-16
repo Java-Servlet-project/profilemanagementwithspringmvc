@@ -1,14 +1,19 @@
 package com.profilemanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Employee {
 	
+	@JsonProperty("First Name")
 	private String firstName;
 	
 	private String lastName;
 	
-	private Long salary;
+	private float salary;
 	
-	public Employee(final String firstName, final String lastName, final Long salary) {
+	public Employee() {}
+	
+	public Employee(final String firstName, final String lastName, final float salary) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.salary = salary;
@@ -30,11 +35,11 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-	public Long getSalary() {
+	public float getSalary() {
 		return salary;
 	}
 
-	public void setSalary(final Long salary) {
+	public void setSalary(final float salary) {
 		this.salary = salary;
 	}
 }
